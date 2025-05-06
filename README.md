@@ -2,6 +2,47 @@
 
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.10.
 
+## Environment Setup
+
+### 1. Install official Node.js LTS from website
+
+### 2. Open command prompt
+
+### 3. Verify:
+```bash
+node -v
+npm -v
+```
+
+### 4. Install angular CLI with npm
+   ```bash
+   npm install -g @angular/cli
+   ```
+   
+### 5. Verify:
+```bash
+npm list -g --depth 0 
+```
+
+### 6. Create a project
+```bash
+ng new practice
+```
+
+If you're not doing git, you can use --skip-git option in project creation.
+```bash
+ng new --skip-git practice
+```
+
+### 7. Add to GitHub (recommended)
+Open the project folder in VS Code:
+```bash
+cd practice
+code .
+```
+Choose the source control tab select publish branch, authenticate your github account. 
+
+
 ## Development server
 
 To start a local development server, run:
