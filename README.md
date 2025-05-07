@@ -2,6 +2,9 @@
 
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.10.
 
+It has been modified for demonstration of Practice Activies for Frontend Framworks.
+Joanne Hoar, May 2025
+
 ## Environment Setup
 
 ### 1. Install official Node.js LTS from website
