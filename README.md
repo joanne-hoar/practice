@@ -73,6 +73,14 @@ Try adding this to main.ts then run lint again.
 const pi = 3.14
 ```
 
+## Testing
+
+```bash
+ng test
+``` 
+
+Open the file app.component.spec.ts to edit to re-run tests.
+
 # Acivity #2
 ## Code scaffolding
 
