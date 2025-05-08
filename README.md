@@ -5,6 +5,8 @@ This project was generated using [Angular CLI](https://github.com/angular/angula
 It has been modified for demonstration of Practice Activies for Frontend Framworks.
 Joanne Hoar, May 2025
 
+See https://code.visualstudio.com/docs/nodejs/angular-tutorial
+
 ## Environment Setup
 
 ### 1. Install official Node.js LTS from website
@@ -45,6 +47,7 @@ code .
 ```
 Choose the source control tab select publish branch, authenticate your github account. 
 
+# Activity #1
 
 ## Development server
 
@@ -56,6 +59,21 @@ ng serve
 
 Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
 
+## Lint
+See
+https://v17.angular.io/cli/lint
+And https://eslint.org/docs/latest/
+
+```bash
+ng lint
+``` 
+Try adding this to main.ts then run lint again.
+
+```js
+const pi = 3.14
+```
+
+# Acivity #2
 ## Code scaffolding
 
 Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
