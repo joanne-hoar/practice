@@ -7,7 +7,7 @@ import { Component, Input } from '@angular/core';
   styleUrl: './footer.component.css'
 })
 export class FooterComponent {
-  @Input() publisher: string = "Front End Framworks";
-  @Input() year: string = "2025";
+  @Input() publisher = "Front End Framworks";
+  @Input() year = "2025";
 
 }
