@@ -7,5 +7,8 @@ import { Component } from '@angular/core';
   styleUrl: './product.component.css'
 })
 export class ProductComponent {
-
+  
+  image = "can-of-beans.jpg";
+  name = "Can of Beans";
+  description = "Full of magical moments, this can of beans could be yours!";
 }
