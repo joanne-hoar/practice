@@ -1,0 +1,12 @@
+[
+  {
+    "name": "Postcard",
+    "image": "postcard.jpg",
+    "description": "Let them know that you're thinking of them."
+  },
+  {
+    "name": "Pens",
+    "image": "pens.jpg",
+    "description": "Contains ink."
+  }
+]

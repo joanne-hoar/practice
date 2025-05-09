@@ -1,0 +1,22 @@
+[
+  {
+    "name": "T-shirt",
+    "image": "t-shirt.jpg",
+    "description": "Wear this t-shirt and you will have good luck."
+  },
+  {
+    "name": "Hobo Bag",
+    "image": "hobo-bag.jpg",
+    "description": "Fits everything you need."
+  },
+  {
+    "name": "Shoes",
+    "image": "shoes.jpg",
+    "description": "Shown one, comes in pairs."
+  },
+  {
+    "name": "Shorts",
+    "image": "shorts.jpg",
+    "description": "Complete the look."
+  }
+]
