@@ -1,11 +1,13 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { ProductComponent } from '../product/product.component';
+import { HeaderComponent } from '../header/header.component';
+import { FooterComponent } from '../footer/footer.component';
 
 @Component({
   selector: 'app-products-home',
-  imports: [ProductComponent, CommonModule],
-  templateUrl: './products-home.component.html',
+  imports: [ProductComponent, HeaderComponent, FooterComponent, CommonModule],
+  templateUrl: './products-home.component.html', 
   styleUrl: './products-home.component.css'
 })
 export class ProductsHomeComponent {
