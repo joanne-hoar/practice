@@ -1,8 +1,11 @@
 <div id="header">
     <p>These are the products.</p>
 </div>
-<div>
-  <app-product>
+<div *ngFor="let product of products">
+  <app-product
+    [name]="product.name"
+    [image]="product.image"
+    [description]="product.description">
   </app-product>
 </div>
 <div id="footer">

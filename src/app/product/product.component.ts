@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-product',
@@ -7,8 +7,7 @@ import { Component } from '@angular/core';
   styleUrl: './product.component.css'
 })
 export class ProductComponent {
-  
-  image = "can-of-beans.jpg";
-  name = "Can of Beans";
-  description = "Full of magical moments, this can of beans could be yours!";
+  @Input() name!: string; // Product name
+  @Input() image!: string; // Product image path
+  @Input() description!: string; // Product description
 }
