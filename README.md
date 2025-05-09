@@ -109,3 +109,13 @@ Generate another component that displays a list of products. In this example, it
 Generate two more components for the header and footer. Edit the html and css.
 
 # Activity #3
+
+Much of this is taken from example https://angular.dev/guide/routing/router-tutorial
+
+## Add a Home component with an endpoint /home
+
+## Add navigation buttons
+
+## Add the endpoints and routing for the products pages
+
+In this example, uses the products home component with parameter for category.
