@@ -1,9 +1,12 @@
 <app-header heading="View all {{category}}"></app-header>
-<div *ngFor="let product of products">
+<div style="padding: 8px;" *ngFor="let product of products">
   <app-product
     [name]="product.name"
     [image]="product.image"
     [description]="product.description">
   </app-product>
 </div>
+<form (submit)="sendOrder()">
+  <button type="submit">Submit</button>
+</form>
 <app-footer></app-footer>

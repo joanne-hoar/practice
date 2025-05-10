@@ -1,10 +1,10 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, OnInit, QueryList, ViewChildren } from '@angular/core';
 import { ProductComponent } from '../product/product.component';
 import { HeaderComponent } from '../header/header.component';
 import { FooterComponent } from '../footer/footer.component';
-import { OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-products-home',
@@ -15,8 +15,9 @@ import { ActivatedRoute } from '@angular/router';
 export class ProductsHomeComponent implements OnInit {
   products: any[] = [];
   category?: string | null;
-  
-  constructor(private route: ActivatedRoute) {}
+  @ViewChildren(ProductComponent) productComponents!: QueryList<ProductComponent>;
+
+  constructor(private route: ActivatedRoute, private router: Router  ) {}
 
   ngOnInit(): void {
       this.route.paramMap.subscribe(params => {
@@ -24,14 +25,23 @@ export class ProductsHomeComponent implements OnInit {
         if (this.category) {
           this.fetchProducts('assets/' + this.category + '.json');
         }
-      });
-    }
-      
+      });    
+  }
 
   fetchProducts(url: string): void {
       fetch(url)
       .then(response => response.json()) // Parse JSON
       .then(data => this.products = data) // Work with JSON data
       .catch(error => console.error('Error fetching JSON:', error));
+  }
+
+  sendOrder(): void {
+    var message = "";
+    this.productComponents.forEach(product => {
+     if(product.count > 0)
+        message += product.count + ' ' + product.name + ', ';
+    });
+
+    this.router.navigate(['/order', {order: message}]);
   }
 }
