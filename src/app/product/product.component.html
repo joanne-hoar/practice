@@ -1,5 +1,7 @@
-<div style="border: 1px solid #ccc; padding: 16px; border-radius: 8px; max-width: 300px; text-align: center;">
+<div style="border: 1px solid #ccc; padding: 16px; border-radius: 8px; max-width: 300px; text-align: left;">
   <h2>{{ name }}</h2>
   <img src="assets/{{ image }}" alt="Image" width="200" />
   <p>{{ description }}</p>
+  <p>On order: {{ count }}</p>
+  <app-add-to-cart [(quantity)]="count"></app-add-to-cart>
 </div>
