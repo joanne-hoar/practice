@@ -110,8 +110,8 @@ Generate two more components for the header and footer. Edit the html and css.
 
 # Activity #3
 
-Much of this is taken from example https://angular.dev/guide/routing/router-tutorial
-
+Much of this is example is found https://angular.dev/guide/routing/router-tutorial and https://angular.dev/guide/templates/two-way-binding and https://angular.dev/guide/routing/common-router-tasks.
+ 
 ## Add a Home component with an endpoint /home
 
 ## Add navigation buttons
@@ -119,3 +119,9 @@ Much of this is taken from example https://angular.dev/guide/routing/router-tuto
 ## Add the endpoints and routing for the products pages
 
 In this example, uses the products home component with parameter for category.
+
+## Two-way Data Binding
+
+## Data Binding Between Components
+
+## Routing Navigation
