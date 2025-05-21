@@ -10,5 +10,9 @@ export const routes: Routes = [
   // Route for the home page
   { path: 'home', component: HomeComponent },
   // Route for the order summary page
-  { path: 'order', component: OrderComponent }
+  { path: 'order', component: OrderComponent },
+  // Default route
+  { path: '', redirectTo: '/home', pathMatch: 'full' },       
+  // Wildcard route
+  { path: '**', redirectTo: '/home' }                         
 ];
