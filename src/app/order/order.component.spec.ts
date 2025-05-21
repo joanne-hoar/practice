@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { OrderComponent } from './order.component';
+import { provideRouter } from '@angular/router';
 
 describe('OrderComponent', () => {
   let component: OrderComponent;
@@ -8,7 +8,8 @@ describe('OrderComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [OrderComponent]
+      imports: [OrderComponent],
+      providers: [provideRouter([])]
     })
     .compileComponents();
 
@@ -19,5 +20,15 @@ describe('OrderComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should have order property as null by default', () => {
+    expect(component.order).toBeNull();
+  });
+
+  it('should render header and footer components', () => {
+    const compiled = fixture.nativeElement as HTMLElement;
+    expect(compiled.querySelector('app-header')).toBeTruthy();
+    expect(compiled.querySelector('app-footer')).toBeTruthy();
   });
 });
