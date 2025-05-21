@@ -11,6 +11,7 @@ interface Product {
   name: string;
   image: string;
   description: string;
+  category: string;
 }
 
 /**
@@ -42,16 +43,18 @@ export class ProductsHomeComponent implements OnInit {
       this.route.paramMap.subscribe(params => {
         this.category = params.get('id');
         if (this.category) {
-          this.fetchProducts('assets/data/' + this.category + '.json');
+          this.fetchProducts(this.category);
         }
       });    
   }
 
   // Fetches products from the given JSON URL and assigns them to the products array
-  fetchProducts(url: string): void {
-      fetch(url)
-      .then(response => response.json()) // Parse JSON
-      .then(data => this.products = data) // Work with JSON data
+  fetchProducts(category: string): void {
+    fetch('assets/products.json')
+      .then(response => response.json())
+      .then((data: Product[]) => {
+        this.products = data.filter(product => product.category === category);
+      })
       .catch(error => console.error('Error fetching JSON:', error));
   }
 
