@@ -42,7 +42,7 @@ export class ProductsHomeComponent implements OnInit {
       this.route.paramMap.subscribe(params => {
         this.category = params.get('id');
         if (this.category) {
-          this.fetchProducts('assets/' + this.category + '.json');
+          this.fetchProducts('assets/data/' + this.category + '.json');
         }
       });    
   }
