@@ -1,5 +1,10 @@
 import { Component, Input } from '@angular/core';
 
+/**
+ * FooterComponent
+ *
+ * Displays the application footer with publisher and year information.
+ */
 @Component({
   selector: 'app-footer',
   imports: [],
