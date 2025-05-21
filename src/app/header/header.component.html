@@ -1,9 +1,17 @@
+<!--
+  HeaderComponent Template
+
+  Contains the navigation bar with links to different sections of the app
+  and displays the heading passed as an input.
+-->
 <div id="header">
     <nav>
+    <!-- Navigation links with routerLink and routerLinkActive for Angular routing -->
     <a class="button" routerLink="/home" routerLinkActive="activebutton">Home</a> |
     <a class="button" routerLink="/products/grocery" routerLinkActive="activebutton">Grocery</a> |
     <a class="button" routerLink="/products/clothing" routerLinkActive="activebutton">Clothing</a> |
     <a class="button" routerLink="/products/stationary" routerLinkActive="activebutton">Stationary</a>
     </nav>
+    <!-- Displays the heading input property -->
     <h1>{{ heading }}</h1>
 </div>
