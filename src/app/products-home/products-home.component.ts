@@ -7,7 +7,7 @@ import { OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Router } from '@angular/router';
 
-interface Product {
+export interface Product {
   // matches expected json file
   name: string;
   image: string;
@@ -37,7 +37,7 @@ export class ProductsHomeComponent implements OnInit {
   ngOnInit(): void {
 
     this.route.paramMap.subscribe( params => {
-      let category = params.get('category');
+      const category = params.get('category');
       if(category){
         this.FetchCategory(category);
       }
