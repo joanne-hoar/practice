@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { AddToCartComponent } from '../add-to-cart/add-to-cart.component';
+import { ProductDetails } from '../product.model';
 
 /**
  * ProductComponent
@@ -14,12 +15,8 @@ import { AddToCartComponent } from '../add-to-cart/add-to-cart.component';
   styleUrl: './product.component.css'
 })
 export class ProductComponent {
-  // Product name received from parent component
-  @Input() name!: string;
-  // Product image path received from parent component
-  @Input() image!: string;
-  // Product description received from parent component
-  @Input() description!: string;
+  // Product received from parent component
+  @Input() details!: ProductDetails;
 
   // Number of this product on order
   count = 0;

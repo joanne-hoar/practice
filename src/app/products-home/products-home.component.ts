@@ -5,14 +5,7 @@ import { HeaderComponent } from '../header/header.component';
 import { FooterComponent } from '../footer/footer.component';
 import { ActivatedRoute } from '@angular/router';
 import { Router } from '@angular/router';
-
-interface Product {
-  // matches expected json file
-  name: string;
-  image: string;
-  description: string;
-  category: string;
-}
+import { ProductDetails } from '../product.model';
 
 /**
  * ProductsHomeComponent
@@ -29,7 +22,7 @@ interface Product {
 })
 export class ProductsHomeComponent implements OnInit {
   // Array of products loaded from the JSON file
-  products: Product[] = [];
+  products: ProductDetails[] = [];
   // The current category from the route parameter
   category?: string | null;
   // QueryList of child ProductComponent instances
@@ -52,7 +45,7 @@ export class ProductsHomeComponent implements OnInit {
   fetchProducts(category: string): void {
     fetch('assets/products.json')
       .then(response => response.json())
-      .then((data: Product[]) => {
+      .then((data: ProductDetails[]) => {
         this.products = data.filter(product => product.category === category);
       })
       .catch(error => console.error('Error fetching JSON:', error));
@@ -63,7 +56,7 @@ export class ProductsHomeComponent implements OnInit {
     let message = "";
     this.productComponents.forEach(product => {
      if(product.count > 0)
-        message += product.count + ' ' + product.name + ', ';
+        message += product.count + ' ' + product.details.name + ', ';
     });
 
     this.router.navigate(['/order', {order: message}]);

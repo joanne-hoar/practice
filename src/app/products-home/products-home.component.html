@@ -4,13 +4,10 @@
   Displays the header, a list of products, an order submission form, and the footer.
 -->
 <app-header heading="View all {{category}}"></app-header>
-<div style="padding: 8px;" *ngFor="let product of products">
-  <!-- Renders a ProductComponent for each product in the products array -->
-  <app-product
-    [name]="product.name"
-    [image]="product.image"
-    [description]="product.description">
-  </app-product>
+<div class="products-grid">
+  <div class="product-cell" *ngFor="let product of products">
+    <app-product [details]="product"></app-product>
+  </div>
 </div>
 <!-- Form to submit the order -->
 <form (submit)="sendOrder()">

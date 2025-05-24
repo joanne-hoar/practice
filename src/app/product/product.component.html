@@ -4,10 +4,10 @@
   Displays a single product's details, including name, image, description,
   current order count, and an add-to-cart form.
 -->
-<div style="border: 1px solid #ccc; padding: 16px; border-radius: 8px; max-width: 300px; text-align: left;">
-  <h2>{{ name }}</h2>
-  <img src="assets/products/{{ image }}" alt="Image" width="200" />
-  <p>{{ description }}</p>
+<div style="border: 1px solid #ccc; padding: 16px; border-radius: 8px; max-width: 300px; text-align: center;">
+  <h2>{{ details.name }}</h2>
+  <img src="assets/products/{{ details.image }}" alt="Image" width="200" />
+  <p>{{ details.description }}</p>
   <p>On order: {{ count }}</p>
   <app-add-to-cart [(quantity)]="count"></app-add-to-cart>
 </div>
