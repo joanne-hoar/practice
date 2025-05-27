@@ -25,9 +25,9 @@ describe('ProductComponent', () => {
   });
 
   it('should render product name, image, and description', () => {
-    component.name = 'Test Product';
-    component.image = 'test.jpg';
-    component.description = 'Test Description';
+    component.details.name = 'Test Product';
+    component.details.image = 'test.jpg';
+    component.details.description = 'Test Description';
     fixture.detectChanges();
 
     const compiled = fixture.nativeElement as HTMLElement;

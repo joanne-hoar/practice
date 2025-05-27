@@ -29,7 +29,7 @@ export class ProductsHomeComponent implements OnInit {
   @ViewChildren(ProductComponent) productComponents!: QueryList<ProductComponent>;
 
   // Injects ActivatedRoute for accessing route parameters and Router for navigation
-  constructor(private route: ActivatedRoute, private router: Router  ) {}
+  constructor(private route: ActivatedRoute, private router: Router ) {}
 
   // OnInit lifecycle hook subscribes to route parameters and loads products for the selected category
   ngOnInit(): void {
@@ -51,14 +51,8 @@ export class ProductsHomeComponent implements OnInit {
       .catch(error => console.error('Error fetching JSON:', error));
   }
 
-  // Gathers the selected products and navigates to the order page with the order summary
   sendOrder(): void {
-    let message = "";
-    this.productComponents.forEach(product => {
-     if(product.count > 0)
-        message += product.count + ' ' + product.details.name + ', ';
-    });
 
-    this.router.navigate(['/order', {order: message}]);
+    this.router.navigate(['/order']);
   }
 }

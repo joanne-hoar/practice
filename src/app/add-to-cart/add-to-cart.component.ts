@@ -1,4 +1,4 @@
-import { Component, model } from '@angular/core';
+import { Component, model, Output, EventEmitter  } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
 /**
@@ -14,6 +14,12 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './add-to-cart.component.css'
 })
 export class AddToCartComponent {
+  @Output() addToCart = new EventEmitter();
+
   // Holds the quantity of the product to add to cart, initialized to 0
   quantity = model<number>(0);
+
+  onAddToCart() {
+    this.addToCart.emit();
+  }
 }
