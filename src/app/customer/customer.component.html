@@ -42,5 +42,10 @@
   <span style="color: red;" *ngIf="addressError">{{ addressError }}</span>
   <br /><br />
 
-  <button type="submit">Submit</button>
+  <button
+    type="submit"
+    [disabled]="nameError || addressError || emailError || !name || !email || !address"
+  >
+    Submit
+  </button>
 </form>
