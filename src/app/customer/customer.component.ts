@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
 import { CartService } from '../cart.service';
 import { FormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-customer',
-  imports: [FormsModule],
+  imports: [FormsModule, CommonModule],
   templateUrl: './customer.component.html',
   styleUrl: './customer.component.css'
 })
@@ -18,9 +19,24 @@ export class CustomerComponent {
   city = '';
   postcode = '';
 
+  emailError = '';
+
   constructor(private cart: CartService, private router: Router ) {}
 
+  validateEmail(email: string): boolean {
+    // Simple email regex for validation
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+  }
+
   onSubmit() {
+    // Email validation
+    if (!this.validateEmail(this.email)) {
+      this.emailError = 'Please enter a valid email address.';
+      return;
+    } else {
+      this.emailError = '';
+    }
+
     // Gather customer details
     const customerDetails = {
       name: this.name,

@@ -3,13 +3,15 @@
 
   Provides a form for the user to enter their personal details, contact details, and delivery address.
 -->
-<form (ngSubmit)="onSubmit()">
+<form (ngSubmit)="onSubmit()" #f="ngForm">
   <h2>Customer Details</h2>
   <label for="name">Full Name:</label>
   <input type="text" id="name" name="name" [(ngModel)]="name" required /><br /><br />
 
   <label for="email">Email:</label>
-  <input type="email" id="email" name="email" [(ngModel)]="email" required /><br /><br />
+  <input type="email" id="email" name="email" [(ngModel)]="email" required />
+  <span style="color: red;" *ngIf="emailError">{{ emailError }}</span>
+  <br /><br />
 
   <h3>Delivery Address</h3>
   <label for="address">Address:</label>
