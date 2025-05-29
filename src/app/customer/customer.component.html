@@ -6,7 +6,16 @@
 <form (ngSubmit)="onSubmit()" #f="ngForm">
   <h2>Customer Details</h2>
   <label for="name">Full Name:</label>
-  <input type="text" id="name" name="name" [(ngModel)]="name" required /><br /><br />
+  <input
+    type="text"
+    id="name"
+    name="name"
+    [(ngModel)]="name"
+    (ngModelChange)="onNameChange($event)"
+    required
+  />
+  <span style="color: red;" *ngIf="nameError">{{ nameError }}</span>
+  <br /><br />
 
   <label for="email">Email:</label>
   <input
@@ -22,7 +31,16 @@
 
   <h3>Delivery Address</h3>
   <label for="address">Address:</label>
-  <input type="text" id="address" name="address" [(ngModel)]="address" required /><br /><br />
+  <input
+    type="text"
+    id="address"
+    name="address"
+    [(ngModel)]="address"
+    (ngModelChange)="onAddressChange($event)"
+    required
+  />
+  <span style="color: red;" *ngIf="addressError">{{ addressError }}</span>
+  <br /><br />
 
   <button type="submit">Submit</button>
 </form>

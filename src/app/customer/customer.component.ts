@@ -20,6 +20,8 @@ export class CustomerComponent {
   postcode = '';
 
   emailError = '';
+  nameError = '';
+  addressError = '';
 
   constructor(private cart: CartService, private router: Router ) {}
 
@@ -37,13 +39,31 @@ export class CustomerComponent {
     }
   }
 
+  onNameChange(value: string) {
+    this.name = value;
+    this.nameError = this.name.trim().length === 0 ? 'Name is required.' : '';
+  }
+
+  onAddressChange(value: string) {
+    this.address = value;
+    this.addressError = this.address.trim().length === 0 ? 'Address is required.' : '';
+  }
+
   onSubmit() {
+    // Validate name and address
+    this.nameError = this.name.trim().length === 0 ? 'Name is required.' : '';
+    this.addressError = this.address.trim().length === 0 ? 'Address is required.' : '';
+
     // Email validation
     if (!this.validateEmail(this.email)) {
       this.emailError = 'Please enter a valid email address.';
-      return;
     } else {
       this.emailError = '';
+    }
+
+    // If any errors, do not proceed
+    if (this.nameError || this.addressError || this.emailError) {
+      return;
     }
 
     // Gather customer details
