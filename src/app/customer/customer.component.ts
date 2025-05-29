@@ -3,8 +3,8 @@ import { CartService } from '../cart.service';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
-import { NotOnlyWhitespaceValidatorDirective } from './validators/not-only-whitespace.directive';
-import { EmailPatternValidatorDirective } from './validators/email-pattern.directive';
+import { NotOnlyWhitespaceValidatorDirective } from '../customers/validators/not-only-whitespace.directive';
+import { EmailPatternValidatorDirective } from '../customers/validators/email-pattern.directive';
 
 @Component({
   selector: 'app-customer',
