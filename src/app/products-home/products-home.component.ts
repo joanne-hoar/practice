@@ -4,7 +4,6 @@ import { ProductComponent } from '../product/product.component';
 import { HeaderComponent } from '../header/header.component';
 import { FooterComponent } from '../footer/footer.component';
 import { ActivatedRoute } from '@angular/router';
-import { Router } from '@angular/router';
 import { ProductDetails } from '../product.model';
 
 /**
@@ -29,7 +28,7 @@ export class ProductsHomeComponent implements OnInit {
   @ViewChildren(ProductComponent) productComponents!: QueryList<ProductComponent>;
 
   // Injects ActivatedRoute for accessing route parameters and Router for navigation
-  constructor(private route: ActivatedRoute, private router: Router ) {}
+  constructor(private route: ActivatedRoute) {}
 
   // OnInit lifecycle hook subscribes to route parameters and loads products for the selected category
   ngOnInit(): void {
@@ -49,10 +48,5 @@ export class ProductsHomeComponent implements OnInit {
         this.products = data.filter(product => product.category === category);
       })
       .catch(error => console.error('Error fetching JSON:', error));
-  }
-
-  sendOrder(): void {
-
-    this.router.navigate(['/order']);
   }
 }
