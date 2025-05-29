@@ -4,13 +4,19 @@
   Displays the order summary and a thank you message to the user.
 -->
 <app-header heading="Thank You"></app-header>
-<div class="products-grid">
-  <div class="product-cell" *ngFor="let product of order">
-    <app-product [details]="product.product"></app-product>
+<div class="order-flex-container" style="display: flex; gap: 32px; align-items: flex-start; justify-content: center; padding: 24px;">
+  <div style="flex: 1; max-width: 400px;">
+    <app-customer *ngIf="order.length > 0"></app-customer>
   </div>
-</div>
-<div style="padding: 16px; text-align: center;">
-  <p *ngIf="order.length === 0">Your cart is empty</p>
-  <p *ngIf="order.length > 0"><app-customer /></p>
+  <div style="flex: 2;">
+    <div class="products-grid">
+      <div class="product-cell" *ngFor="let product of order">
+        <app-product [details]="product.product"></app-product>
+      </div>
+    </div>
+    <div style="padding: 16px; text-align: center;">
+      <p *ngIf="order.length === 0">Your cart is empty</p>
+    </div>
+  </div>
 </div>
 <app-footer></app-footer>
