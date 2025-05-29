@@ -1,4 +1,4 @@
-import { Directive, Input } from '@angular/core';
+import { Directive } from '@angular/core';
 import { NG_VALIDATORS, Validator, AbstractControl, ValidationErrors } from '@angular/forms';
 
 @Directive({
@@ -13,7 +13,6 @@ import { NG_VALIDATORS, Validator, AbstractControl, ValidationErrors } from '@an
   standalone: true
 })
 export class EmailPatternValidatorDirective implements Validator {
-  @Input('appEmailPattern') pattern = '^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$';
 
   validate(control: AbstractControl): ValidationErrors | null {
     // Allow blank value (valid)
@@ -21,7 +20,7 @@ export class EmailPatternValidatorDirective implements Validator {
       return null;
     }
     // If not blank, must match pattern
-    if (!new RegExp(this.pattern).test(control.value)) {
+    if (! /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(control.value)) {
       return { emailPattern: true };
     }
     return null;
