@@ -23,4 +23,15 @@ describe('HomeComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should render header and footer components', () => {
+    const compiled = fixture.nativeElement as HTMLElement;
+    expect(compiled.querySelector('app-header')).toBeTruthy();
+    expect(compiled.querySelector('app-footer')).toBeTruthy();
+  });
+
+  it('should render welcome message', () => {
+    const compiled = fixture.nativeElement as HTMLElement;
+    expect(compiled.textContent?.toLowerCase()).toContain('welcome to our online store');
+  });
 });

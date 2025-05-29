@@ -28,4 +28,13 @@ describe('HeaderComponent', () => {
     const compiled = fixture.nativeElement as HTMLElement;
     expect(compiled.querySelector('h1')?.textContent).toContain('Test Heading');
   });
+
+  it('should render navigation links', () => {
+    const compiled = fixture.nativeElement as HTMLElement;
+    expect(compiled.querySelector('a[routerLink="/home"]')).toBeTruthy();
+    expect(compiled.querySelector('a[routerLink="/products/grocery"]')).toBeTruthy();
+    expect(compiled.querySelector('a[routerLink="/products/clothing"]')).toBeTruthy();
+    expect(compiled.querySelector('a[routerLink="/products/stationary"]')).toBeTruthy();
+    expect(compiled.querySelector('a[routerLink="/order"]')).toBeTruthy();
+  });
 });

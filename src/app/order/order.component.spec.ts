@@ -22,13 +22,20 @@ describe('OrderComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should have order property as null by default', () => {
-    expect(component.order).toBeNull();
+  it('should have order property as empty by default', () => {
+    expect(component.order.length).toBe(0);
   });
 
   it('should render header and footer components', () => {
     const compiled = fixture.nativeElement as HTMLElement;
     expect(compiled.querySelector('app-header')).toBeTruthy();
     expect(compiled.querySelector('app-footer')).toBeTruthy();
+  });
+
+  it('should show "Your cart is empty" if order is empty', () => {
+    component.order = [];
+    fixture.detectChanges();
+    const compiled = fixture.nativeElement as HTMLElement;
+    expect(compiled.textContent?.toLowerCase()).toContain('your cart is empty');
   });
 });

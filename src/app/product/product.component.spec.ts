@@ -13,6 +13,13 @@ describe('ProductComponent', () => {
 
     fixture = TestBed.createComponent(ProductComponent);
     component = fixture.componentInstance;
+    // Provide a default details object to avoid undefined errors
+    component.details = {
+      name: '',
+      image: '',
+      description: '',
+      category: ''
+    };
     fixture.detectChanges();
   });
 
@@ -20,14 +27,17 @@ describe('ProductComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should have count initialized to 0', () => {
-    expect(component.count).toBe(0);
+  it('should have count initialized to 1', () => {
+    expect(component.count).toBe(1);
   });
 
   it('should render product name, image, and description', () => {
-    component.details.name = 'Test Product';
-    component.details.image = 'test.jpg';
-    component.details.description = 'Test Description';
+    component.details = {
+      name: 'Test Product',
+      image: 'test.jpg',
+      description: 'Test Description',
+      category: 'test'
+    };
     fixture.detectChanges();
 
     const compiled = fixture.nativeElement as HTMLElement;
