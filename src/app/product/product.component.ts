@@ -39,8 +39,8 @@ export class ProductComponent  implements OnInit {
 
   onRemoveFromCart(): void {
     if (this.total > 0) {
-      this.cart.removeFromCart(this.details);
-      this.total = 0;
+      this.cart.removeFromCart(this.details, this.count);
+      this.total = this.cart.getCountForProduct(this.details.name);
     }
   }
 }

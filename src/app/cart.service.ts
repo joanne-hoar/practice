@@ -17,10 +17,13 @@ export class CartService {
     }
   }
 
-  removeFromCart(details: ProductDetails) {
+  removeFromCart(details: ProductDetails, count = 1) {
     const index = this.items.findIndex(item => item.product.name === details.name);
     if (index > -1) {
-        this.items.splice(index, 1);      
+      this.items[index].count -= count;
+      if (this.items[index].count <= 0) {
+        this.items.splice(index, 1);
+      }
     }
   }
 
