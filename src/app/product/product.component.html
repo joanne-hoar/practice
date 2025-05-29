@@ -10,5 +10,5 @@
   <p>{{ details.description }}</p>
   <p>Already in cart: {{ total }}</p>
   <p>Num to add: {{ count }}</p>
-  <app-add-to-cart [(quantity)]="count" (addToCart)="onAddToCart()"></app-add-to-cart>
+  <app-add-to-cart [(quantity)]="count" [(carttotal)]="total" (addToCart)="onAddToCart()" (removeFromCart)="onRemoveFromCart()"></app-add-to-cart>
 </div>

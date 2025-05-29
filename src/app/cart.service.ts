@@ -4,7 +4,6 @@ import { ProductDetails } from './product.model';
 @Injectable({
   providedIn: 'root'
 })
-
 export class CartService {
 
   items: { product: ProductDetails, count: number }[] = [];
@@ -15,7 +14,15 @@ export class CartService {
       this.items[index].count += count;
     } else {
       this.items.push({ product: details, count });
-    }  }
+    }
+  }
+
+  removeFromCart(details: ProductDetails) {
+    const index = this.items.findIndex(item => item.product.name === details.name);
+    if (index > -1) {
+        this.items.splice(index, 1);      
+    }
+  }
 
   getItems() {
     return this.items;

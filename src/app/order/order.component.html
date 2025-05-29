@@ -10,6 +10,7 @@
   </div>
 </div>
 <div style="padding: 16px; text-align: center;">
-  <p>Your order will be sent to you shortly!</p>
+  <p *ngIf="order.length === 0">Your cart is empty</p>
+  <p *ngIf="order.length > 0">Your order will be sent to you shortly!</p>
 </div>
 <app-footer></app-footer>

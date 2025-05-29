@@ -20,7 +20,7 @@ export class ProductComponent  implements OnInit {
   @Input() details!: ProductDetails;
 
   // Number of this product on order
-  count = 0;
+  count = 1;
   total = 0;
 
   constructor(private cart: CartService){}
@@ -30,10 +30,17 @@ export class ProductComponent  implements OnInit {
     this.total = this.cart.getCountForProduct(this.details.name);
   }
 
-    onAddToCart(): void {
-     if(this.count > 0){
+  onAddToCart(): void {
+    if (this.count > 0) {
       this.cart.addToCart(this.details, this.count);
       this.total = this.cart.getCountForProduct(this.details.name);
-     }
     }
   }
+
+  onRemoveFromCart(): void {
+    if (this.total > 0) {
+      this.cart.removeFromCart(this.details);
+      this.total = 0;
+    }
+  }
+}
