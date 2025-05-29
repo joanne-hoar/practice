@@ -9,6 +9,5 @@
   <img src="assets/products/{{ details.image }}" alt="Image" width="200" />
   <p>{{ details.description }}</p>
   <p>Already in cart: {{ total }}</p>
-  <p>Num to add: {{ count }}</p>
   <app-add-to-cart [(quantity)]="count" [(carttotal)]="total" (addToCart)="onAddToCart()" (removeFromCart)="onRemoveFromCart()"></app-add-to-cart>
 </div>

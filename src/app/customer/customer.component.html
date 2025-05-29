@@ -9,7 +9,14 @@
   <input type="text" id="name" name="name" [(ngModel)]="name" required /><br /><br />
 
   <label for="email">Email:</label>
-  <input type="email" id="email" name="email" [(ngModel)]="email" required />
+  <input
+    type="email"
+    id="email"
+    name="email"
+    [(ngModel)]="email"
+    (ngModelChange)="onEmailChange($event)"
+    required
+  />
   <span style="color: red;" *ngIf="emailError">{{ emailError }}</span>
   <br /><br />
 

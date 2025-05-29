@@ -28,6 +28,15 @@ export class CustomerComponent {
     return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
   }
 
+  onEmailChange(value: string) {
+    this.email = value;
+    if (!this.validateEmail(this.email) && this.email.length > 0) {
+      this.emailError = 'Please enter a valid email address.';
+    } else {
+      this.emailError = '';
+    }
+  }
+
   onSubmit() {
     // Email validation
     if (!this.validateEmail(this.email)) {
