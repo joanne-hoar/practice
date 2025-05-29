@@ -7,6 +7,7 @@ import { CartService } from '../cart.service';
 import { ProductComponent } from '../product/product.component';
 import { ProductDetails } from '../product.model';
 import { CommonModule } from '@angular/common';
+import { CustomerComponent } from "../customer/customer.component";
 /**
  * OrderComponent
  *
@@ -15,7 +16,7 @@ import { CommonModule } from '@angular/common';
  */
 @Component({
   selector: 'app-order',
-  imports: [HeaderComponent, FooterComponent, ProductComponent, CommonModule],
+  imports: [HeaderComponent, FooterComponent, ProductComponent, CommonModule, CustomerComponent],
   templateUrl: './order.component.html',
   styleUrl: './order.component.css'
 })
