@@ -11,10 +11,13 @@
     id="name"
     name="name"
     [(ngModel)]="name"
-    (ngModelChange)="onNameChange($event)"
     required
+    appNotOnlyWhitespace
+    #nameInput="ngModel"
   />
-  <span style="color: red;" *ngIf="nameError">{{ nameError }}</span>
+  <span style="color: red;" *ngIf="nameInput.invalid && (nameInput.dirty || nameInput.touched)">
+    Name is required and cannot be only whitespace.
+  </span>
   <br /><br />
 
   <label for="email">Email:</label>
@@ -23,10 +26,12 @@
     id="email"
     name="email"
     [(ngModel)]="email"
-    (ngModelChange)="onEmailChange($event)"
-    required
+    appEmailPattern
+    #emailInput="ngModel"
   />
-  <span style="color: red;" *ngIf="emailError">{{ emailError }}</span>
+  <span style="color: red;" *ngIf="emailInput.invalid && emailInput.value && (emailInput.dirty || emailInput.touched)">
+    Please enter a valid email address.
+  </span>
   <br /><br />
 
   <h3>Delivery Address</h3>
@@ -36,15 +41,18 @@
     id="address"
     name="address"
     [(ngModel)]="address"
-    (ngModelChange)="onAddressChange($event)"
     required
+    appNotOnlyWhitespace
+    #addressInput="ngModel"
   />
-  <span style="color: red;" *ngIf="addressError">{{ addressError }}</span>
+  <span style="color: red;" *ngIf="addressInput.invalid && (addressInput.dirty || addressInput.touched)">
+    Address is required and cannot be only whitespace.
+  </span>
   <br /><br />
 
   <button
     type="submit"
-    [disabled]="nameError || addressError || emailError || !name || !email || !address"
+    [disabled]="f.invalid"
   >
     Submit
   </button>

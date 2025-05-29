@@ -16,7 +16,12 @@ export class EmailPatternValidatorDirective implements Validator {
   @Input('appEmailPattern') pattern = '^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$';
 
   validate(control: AbstractControl): ValidationErrors | null {
-    if (control.value && !new RegExp(this.pattern).test(control.value)) {
+    // Allow blank value (valid)
+    if (!control.value) {
+      return null;
+    }
+    // If not blank, must match pattern
+    if (!new RegExp(this.pattern).test(control.value)) {
       return { emailPattern: true };
     }
     return null;
